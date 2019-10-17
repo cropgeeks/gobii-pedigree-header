@@ -1,22 +1,23 @@
 <project name="PedigreeHeader" default="compile" basedir=".">
 
 	<property name="src" location="src"/>
-	<property name="lib" location="lib"/>
 	<property name="cls" location="classes"/>
-	<property name="jar" value="${lib}/pedigreeheader.jar"/>
+	<property name="jar" value="pedigreeheader.jar"/>
 
 	<!-- Development classpath -->
 	<path id="project.classpath">
 		<pathelement path="${cls}"/>
-		<fileset dir="${lib}"/>
 	</path>
 
 	<!-- Runtime classpath (manifest formatted) -->
 	<manifestclasspath property="jar.classpath" jarfile="${jar}">
         <classpath>
-        	<fileset dir="${lib}" />
         </classpath>
     </manifestclasspath>
+
+	<target name="init">
+		<mkdir dir="${cls}"/>
+	</target>
 
 	<target name="clean">
 		<delete includeemptydirs="true">
@@ -25,7 +26,7 @@
 		</delete>
 	</target>
 
-	<target name="compile">
+	<target name="compile" depends="init">
 		<javac srcdir="${src}" destdir="${cls}" source="8" target="8" debug="true" includeantruntime="false">
 			<classpath refid="project.classpath"/>
 		</javac>
