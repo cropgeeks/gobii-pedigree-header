@@ -41,7 +41,7 @@
 			<manifest>
 				<attribute name="Main-Class" value="jhi.gobii.HeaderCreator"/>
 				<attribute name="Class-Path" value="${jar.classpath}"/>
-				<attribute name="Implementation-Version" value="0.17.6.22"/>
+				<attribute name="Implementation-Version" value="0.17.7.06"/>
 			</manifest>
 		</jar>
 	</target>
